@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Session Orchestrator"
+  short_description: "Monitor Codex sessions and coordinate git operations."
+  default_prompt: "Inventory active Codex sessions and subagents, summarize who is doing what and where, and provide concrete rebase/merge/cherry-pick/stash/worktree guidance based on current git topology."
