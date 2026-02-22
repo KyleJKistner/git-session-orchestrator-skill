@@ -1,41 +1,73 @@
 <svg width="1400" height="420" viewBox="0 0 1400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="80" y1="40" x2="1320" y2="380" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A"/>
-      <stop offset="0.5" stop-color="#0B3A63"/>
-      <stop offset="1" stop-color="#0F766E"/>
+    <linearGradient id="bg" x1="70" y1="30" x2="1330" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1424"/>
+      <stop offset="0.58" stop-color="#0D2740"/>
+      <stop offset="1" stop-color="#0A3B46"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#38BDF8"/>
-      <stop offset="1" stop-color="#34D399"/>
+    <radialGradient id="glowLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(330 182) rotate(14) scale(530 260)">
+      <stop stop-color="#38BDF8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1130 222) rotate(-8) scale(390 240)">
+      <stop stop-color="#2DD4BF" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelStroke" x1="72" y1="74" x2="842" y2="346" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B5D7E"/>
+      <stop offset="1" stop-color="#2C4E67"/>
     </linearGradient>
+    <linearGradient id="accent" x1="870" y1="94" x2="1320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4CC9F0"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" stroke="#27435B" stroke-opacity="0.45"/>
+    </pattern>
+    <clipPath id="clipRoot">
+      <rect width="1400" height="420" rx="28"/>
+    </clipPath>
   </defs>
-  <rect x="0" y="0" width="1400" height="420" rx="28" fill="url(#bg)"/>
-  <rect x="48" y="50" width="1304" height="320" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+  <g clip-path="url(#clipRoot)">
+    <rect width="1400" height="420" rx="28" fill="url(#bg)"/>
+    <rect width="1400" height="420" fill="#060D18" fill-opacity="0.22"/>
+    <rect x="760" y="-40" width="700" height="500" fill="url(#grid)" fill-opacity="0.55"/>
+    <ellipse cx="330" cy="182" rx="530" ry="260" fill="url(#glowLeft)"/>
+    <ellipse cx="1130" cy="222" rx="390" ry="240" fill="url(#glowRight)"/>
+    <path d="M0 324C236 264 434 382 646 334C842 292 1008 160 1400 238V420H0V324Z" fill="#08101D" fill-opacity="0.3"/>
 
-  <rect x="92" y="103" width="16" height="16" rx="8" fill="#22C55E"/>
-  <rect x="117" y="103" width="16" height="16" rx="8" fill="#F59E0B"/>
-  <rect x="142" y="103" width="16" height="16" rx="8" fill="#EF4444"/>
+    <rect x="72" y="74" width="770" height="272" rx="22" fill="#0D1A2B" fill-opacity="0.88" stroke="url(#panelStroke)" stroke-width="1.5"/>
+    <rect x="72" y="74" width="770" height="44" rx="22" fill="#0F2033" fill-opacity="0.95"/>
+    <rect x="72" y="96" width="770" height="1" fill="#2D455B"/>
+    <circle cx="98" cy="96" r="6" fill="#22C55E"/>
+    <circle cx="118" cy="96" r="6" fill="#F59E0B"/>
+    <circle cx="138" cy="96" r="6" fill="#EF4444"/>
 
-  <text x="92" y="176" fill="#E2E8F0" font-size="56" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">
-    git-session-orchestrator
-  </text>
-  <text x="92" y="220" fill="#93C5FD" font-size="24" font-family="'SF Mono','Menlo','Consolas',monospace">
-    Codex skill for session intelligence + git coordination
-  </text>
+    <text x="96" y="184" fill="#EAF4FF" font-size="54" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">git-session-orchestrator</text>
+    <text x="96" y="226" fill="#A7C8E8" font-size="24" font-family="'SF Mono','Menlo','Consolas',monospace">Track Codex sessions, map agent lineage, and coordinate git actions.</text>
 
-  <g opacity="0.95">
-    <rect x="92" y="258" width="600" height="70" rx="12" fill="rgba(15,23,42,0.65)" stroke="rgba(56,189,248,0.45)"/>
-    <text x="114" y="302" fill="#CFFAFE" font-size="22" font-family="'SF Mono','Menlo','Consolas',monospace">
-      ./install.sh --force
-    </text>
+    <rect x="96" y="250" width="664" height="58" rx="12" fill="#0B1524" stroke="#2A506C"/>
+    <text x="118" y="287" fill="#D0F0FF" font-size="21" font-family="'SF Mono','Menlo','Consolas',monospace">codex sessions tail --lineage --git-status</text>
+
+    <g>
+      <rect x="872" y="86" width="458" height="248" rx="24" fill="#0E1F33" fill-opacity="0.56" stroke="#2E5A78" stroke-width="1.2"/>
+      <rect x="902" y="128" width="208" height="12" rx="6" fill="#6EE7F9" fill-opacity="0.88"/>
+      <rect x="902" y="154" width="286" height="12" rx="6" fill="#93C5FD" fill-opacity="0.72"/>
+      <rect x="902" y="180" width="250" height="12" rx="6" fill="#99F6E4" fill-opacity="0.74"/>
+      <rect x="902" y="206" width="312" height="12" rx="6" fill="#67E8F9" fill-opacity="0.52"/>
+      <rect x="902" y="232" width="180" height="12" rx="6" fill="#A7F3D0" fill-opacity="0.67"/>
+
+      <circle cx="1120" cy="206" r="124" fill="#123551" fill-opacity="0.38" stroke="#3E7796" stroke-width="1.5"/>
+      <circle cx="1208" cy="206" r="82" fill="#0E4A53" fill-opacity="0.35" stroke="#2AC6C0" stroke-opacity="0.8" stroke-width="1.5"/>
+      <circle cx="1048" cy="150" r="42" fill="#103E5A" fill-opacity="0.5" stroke="#58B8E5" stroke-opacity="0.75" stroke-width="1.5"/>
+      <path d="M1048 150L1120 206L1208 206" stroke="url(#accent)" stroke-width="2.8" stroke-linecap="round"/>
+      <circle cx="1048" cy="150" r="6" fill="#93E5FF"/>
+      <circle cx="1120" cy="206" r="6" fill="#6EE7F9"/>
+      <circle cx="1208" cy="206" r="6" fill="#5EEAD4"/>
+
+      <text x="1000" y="281" fill="#D3EBFF" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">session graph</text>
+      <text x="1162" y="256" fill="#CCFBF1" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">git topology</text>
+    </g>
   </g>
-
-  <g opacity="0.9">
-    <path d="M955 94C1034 94 1098 158 1098 237C1098 316 1034 380 955 380C876 380 812 316 812 237C812 158 876 94 955 94Z" fill="rgba(56,189,248,0.15)" stroke="rgba(125,211,252,0.5)"/>
-    <path d="M1117 127C1176 127 1224 175 1224 234C1224 293 1176 341 1117 341C1058 341 1010 293 1010 234C1010 175 1058 127 1117 127Z" fill="rgba(52,211,153,0.18)" stroke="rgba(134,239,172,0.5)"/>
-    <path d="M1008 144L1026 162L989 199L964 174L980 158L989 167L1008 144Z" fill="url(#accent)"/>
-    <text x="840" y="245" fill="#E0F2FE" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">session deltas</text>
-    <text x="1052" y="246" fill="#ECFDF5" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">git topology</text>
-  </g>
+  <rect x="0.75" y="0.75" width="1398.5" height="418.5" rx="27.25" stroke="#4A6A84" stroke-opacity="0.42" stroke-width="1.5"/>
 </svg>

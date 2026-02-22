@@ -1,0 +1,27 @@
+name: Smoke
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer Smoke
+        run: |
+          set -euo pipefail
+          ./install.sh --help
+          ./install.sh --print-path
+          ./install.sh --dry-run
+
+      - name: Python Help Smoke
+        run: |
+          set -euo pipefail
+          python3 git-session-orchestrator/scripts/session_monitor.py --help
+          python3 git-session-orchestrator/scripts/git_coordination.py --help
+          python3 git-session-orchestrator/scripts/heartbeat_monitor.py --help

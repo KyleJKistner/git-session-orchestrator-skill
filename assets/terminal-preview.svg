@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Terminal preview showing heartbeat, session deltas, and git status output">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#060A13"/>
+    </linearGradient>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="1" fill="#FFFFFF" opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <rect x="10" y="10" width="1180" height="340" rx="18" fill="url(#bg)" stroke="#1F2937" stroke-width="2"/>
+  <rect x="10" y="10" width="1180" height="340" rx="18" fill="url(#scan)"/>
+
+  <rect x="10" y="10" width="1180" height="44" rx="18" fill="#111827"/>
+  <rect x="10" y="36" width="1180" height="18" fill="#111827"/>
+
+  <circle cx="36" cy="32" r="7" fill="#EF4444"/>
+  <circle cx="58" cy="32" r="7" fill="#F59E0B"/>
+  <circle cx="80" cy="32" r="7" fill="#22C55E"/>
+
+  <text x="104" y="36" fill="#9CA3AF" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+    git-session-orchestrator / live monitor
+  </text>
+
+  <text x="34" y="88" fill="#E5E7EB" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#93C5FD">$</tspan><tspan> codex sessions tail --project ./isthmus --follow</tspan>
+  </text>
+
+  <text x="34" y="116" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:00</tspan><tspan> heartbeat   interval=5s active=3 idle=0 lag=182ms</tspan>
+  </text>
+
+  <text x="34" y="140" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:05</tspan><tspan> session:agent-a delta=+14 events stdout=11 stderr=0 state=running</tspan>
+  </text>
+
+  <text x="34" y="164" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:05</tspan><tspan> session:agent-b delta=+9  events stdout=7  stderr=0 state=running</tspan>
+  </text>
+
+  <text x="34" y="188" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:06</tspan><tspan> git:agent-a  branch=feat/rebase-guard ahead=2 behind=0 clean</tspan>
+  </text>
+
+  <text x="34" y="212" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:07</tspan><tspan> git:agent-b  branch=feat/worktree-sync ahead=0 behind=1 dirty=0</tspan>
+  </text>
+
+  <text x="34" y="236" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:10</tspan><tspan> heartbeat   stale=0 blocked=0 retries=1 queue=0</tspan>
+  </text>
+
+  <text x="34" y="260" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:11</tspan><tspan> session:agent-c delta=+1  status=completed exit=0 duration=00:02:48</tspan>
+  </text>
+
+  <text x="34" y="284" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:12</tspan><tspan> git:agent-c  cherry-pick=9f3a1d2..c17a0be result=ok</tspan>
+  </text>
+
+  <text x="34" y="308" fill="#E5E7EB" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan fill="#6EE7B7">12:41:15</tspan><tspan> summary     running=2 completed=1 failed=0 warnings=0</tspan>
+  </text>
+
+  <text x="34" y="334" fill="#A7F3D0" font-size="16" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" xml:space="preserve">
+    <tspan>$ </tspan><tspan fill="#D1D5DB">_</tspan>
+  </text>
+</svg>

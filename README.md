@@ -1,29 +1,23 @@
-<p align="center">
-  <img src="assets/banner.svg" alt="git-session-orchestrator banner" width="960">
-</p>
-
-<p align="center">
-  <a href="https://github.com/KyleJKistner/git-session-orchestrator-skill"><img alt="repo" src="https://img.shields.io/badge/repo-git--session--orchestrator--skill-0f172a"></a>
-  <img alt="skill type" src="https://img.shields.io/badge/type-Codex%20Skill-0369a1">
-  <img alt="python" src="https://img.shields.io/badge/runtime-Python%203-15803d">
-</p>
-
 # git-session-orchestrator
 
-`git-session-orchestrator` is a Codex skill for monitoring session activity (including subagents) and coordinating safe git operations from current repository state.
+![git-session-orchestrator banner](assets/banner.svg)
 
-Repo: `https://github.com/KyleJKistner/git-session-orchestrator-skill`
+![Codex Skill](https://img.shields.io/badge/type-Codex%20Skill-0f172a)
+![Runtime](https://img.shields.io/badge/runtime-Python%203-2563eb)
+![Installer](https://img.shields.io/badge/install-install.sh-15803d)
+[![Smoke](https://github.com/KyleJKistner/git-session-orchestrator-skill/actions/workflows/smoke.yml/badge.svg)](https://github.com/KyleJKistner/git-session-orchestrator-skill/actions/workflows/smoke.yml)
 
-## Why This Skill
+`git-session-orchestrator` gives you live Codex session visibility (including subagents) plus git-safe coordination guidance from current repo state.
 
-| Capability | What you get |
-| --- | --- |
-| Session visibility | Inventory of primary/subagent sessions, lineage, activity, and log paths |
-| Git coordination | Branch divergence, dirty worktrees, and ordered next-command guidance |
-| Live heartbeat | Continuous delta stream for both session state and git topology |
-| Safer operations | Guardrails against destructive or out-of-order git coordination |
+![Terminal preview](assets/terminal-preview.svg)
 
-## Install in 30 Seconds
+## Value
+
+- Track primary and subagent sessions with lineage and recent activity.
+- Inspect git topology and get ordered next-step commands.
+- Monitor changes continuously with a heartbeat loop for active coordination.
+
+## Install (Quick)
 
 ```bash
 git clone https://github.com/KyleJKistner/git-session-orchestrator-skill.git
@@ -31,40 +25,25 @@ cd git-session-orchestrator-skill
 ./install.sh
 ```
 
-Update an existing local clone:
-
-```bash
-cd git-session-orchestrator-skill
-git pull
-./install.sh --force
-```
-
 ## Verify
 
 ```bash
-ls ~/.codex/skills/git-session-orchestrator
+ls "$HOME/.codex/skills/git-session-orchestrator"
 ```
 
-Expected:
+Expected files:
 - `SKILL.md`
-- `agents/`
-- `references/`
-- `scripts/`
+- `agents/openai.yaml`
+- `references/git-ops-playbook.md`
+- `scripts/session_monitor.py`
+- `scripts/git_coordination.py`
+- `scripts/heartbeat_monitor.py`
 
-## Installer UX
-
-The installer includes:
-- sectioned output with clean status markers
-- interactive overwrite confirmation
-- `--dry-run` preview mode
-- `--force` non-interactive replacement
-- post-copy file verification
-
-Flags:
+## Update
 
 ```bash
-./install.sh --help
-./install.sh --dry-run
+cd git-session-orchestrator-skill
+git pull --ff-only
 ./install.sh --force
 ```
 
@@ -73,37 +52,61 @@ Flags:
 Session inventory:
 
 ```bash
-python3 ~/.codex/skills/git-session-orchestrator/scripts/session_monitor.py inventory --project-root "$PWD" --recent 20 --active-minutes 30
+python3 "$HOME/.codex/skills/git-session-orchestrator/scripts/session_monitor.py" inventory --project-root "$PWD" --recent 20 --active-minutes 30
 ```
 
-Recent activity summary:
+Recent activity:
 
 ```bash
-python3 ~/.codex/skills/git-session-orchestrator/scripts/session_monitor.py activity --project-root "$PWD" --recent 10
+python3 "$HOME/.codex/skills/git-session-orchestrator/scripts/session_monitor.py" activity --project-root "$PWD" --recent 10
 ```
 
-Git topology snapshot:
+Git topology:
 
 ```bash
-python3 ~/.codex/skills/git-session-orchestrator/scripts/git_coordination.py --repo-root "$PWD" --main-branch auto
+python3 "$HOME/.codex/skills/git-session-orchestrator/scripts/git_coordination.py" --repo-root "$PWD" --main-branch auto
 ```
 
-Continuous heartbeat stream:
+Continuous heartbeat:
 
 ```bash
-python3 ~/.codex/skills/git-session-orchestrator/scripts/heartbeat_monitor.py --project-root "$PWD" --repo-root "$PWD" --active-minutes 30 --poll-interval 5 --heartbeat-interval 20
+python3 "$HOME/.codex/skills/git-session-orchestrator/scripts/heartbeat_monitor.py" --project-root "$PWD" --repo-root "$PWD" --active-minutes 30 --poll-interval 5 --heartbeat-interval 20
 ```
 
-One heartbeat cycle:
+One-shot heartbeat:
 
 ```bash
-python3 ~/.codex/skills/git-session-orchestrator/scripts/heartbeat_monitor.py --project-root "$PWD" --repo-root "$PWD" --once
+python3 "$HOME/.codex/skills/git-session-orchestrator/scripts/heartbeat_monitor.py" --project-root "$PWD" --repo-root "$PWD" --once
 ```
 
-## Local Skill Path
+## Troubleshooting
 
-Installed target path:
+- Existing install blocks setup:
 
 ```bash
-~/.codex/skills/git-session-orchestrator
+./install.sh --force
 ```
+
+- Preview actions without changes:
+
+```bash
+./install.sh --dry-run
+```
+
+- `./install.sh: permission denied`:
+
+```bash
+chmod +x ./install.sh
+```
+
+- Install to a custom skills root:
+
+```bash
+./install.sh --path "$HOME/.codex/skills"
+```
+
+## Links
+
+- Share kit: [`docs/share-kit.md`](docs/share-kit.md)
+- Skill entrypoint: [`git-session-orchestrator/SKILL.md`](git-session-orchestrator/SKILL.md)
+- Repo: `https://github.com/KyleJKistner/git-session-orchestrator-skill`

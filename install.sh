@@ -18,17 +18,6 @@ green=""
 yellow=""
 red=""
 
-if [[ -t 1 ]] && command -v tput >/dev/null 2>&1; then
-  if [[ "$(tput colors 2>/dev/null || echo 0)" -ge 8 ]]; then
-    bold="$(tput bold)"
-    reset="$(tput sgr0)"
-    blue="$(tput setaf 4)"
-    green="$(tput setaf 2)"
-    yellow="$(tput setaf 3)"
-    red="$(tput setaf 1)"
-  fi
-fi
-
 log_header() {
   printf "%s%s%s\n" "${bold}" "git-session-orchestrator installer" "${reset}"
 }
@@ -51,12 +40,15 @@ log_err() {
 
 usage() {
   cat <<'EOF'
-Usage: ./install.sh [--force] [--dry-run] [--help]
+Usage: ./install.sh [--force] [--dry-run] [--path <dir>] [--no-color] [--print-path] [--help]
 
 Options:
-  --force, -f    Replace an existing install without prompting.
-  --dry-run, -n  Print planned actions without modifying files.
-  --help, -h     Show this help text.
+  --force, -f      Replace an existing install without prompting.
+  --dry-run, -n    Print planned actions without modifying files.
+  --path <dir>     Install root (default: ~/.codex/skills).
+  --no-color       Disable ANSI colors.
+  --print-path     Print destination path and exit.
+  --help, -h       Show this help text.
 EOF
 }
 
@@ -75,6 +67,9 @@ confirm_replace() {
 
 force=0
 dry_run=0
+no_color=0
+print_path=0
+dest_root="${HOME}/.codex/skills"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -83,6 +78,24 @@ while [[ $# -gt 0 ]]; do
       ;;
     --dry-run|-n)
       dry_run=1
+      ;;
+    --path)
+      if [[ $# -lt 2 ]]; then
+        log_err "Missing value for --path"
+        usage
+        exit 2
+      fi
+      dest_root="$2"
+      shift
+      ;;
+    --path=*)
+      dest_root="${1#*=}"
+      ;;
+    --no-color)
+      no_color=1
+      ;;
+    --print-path)
+      print_path=1
       ;;
     --help|-h)
       usage
@@ -99,8 +112,33 @@ done
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 src="${script_dir}/${skill_name}"
-dest_root="${HOME}/.codex/skills"
+
+case "${dest_root}" in
+  "~")
+    dest_root="${HOME}"
+    ;;
+  "~/"*)
+    dest_root="${HOME}/${dest_root#~/}"
+    ;;
+esac
+
 dest="${dest_root}/${skill_name}"
+
+if [[ "${print_path}" -eq 1 ]]; then
+  printf "%s\n" "${dest}"
+  exit 0
+fi
+
+if [[ "${no_color}" -eq 0 ]] && [[ -t 1 ]] && command -v tput >/dev/null 2>&1; then
+  if [[ "$(tput colors 2>/dev/null || echo 0)" -ge 8 ]]; then
+    bold="$(tput bold)"
+    reset="$(tput sgr0)"
+    blue="$(tput setaf 4)"
+    green="$(tput setaf 2)"
+    yellow="$(tput setaf 3)"
+    red="$(tput setaf 1)"
+  fi
+fi
 
 log_header
 log_step "1/5" "Validating source bundle"
