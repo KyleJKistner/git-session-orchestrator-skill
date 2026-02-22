@@ -1,15 +1,6 @@
 # git-session-orchestrator
 
-![git-session-orchestrator banner](assets/banner.svg)
-
-![Codex Skill](https://img.shields.io/badge/type-Codex%20Skill-0f172a)
-![Runtime](https://img.shields.io/badge/runtime-Python%203-2563eb)
-![Installer](https://img.shields.io/badge/install-install.sh-15803d)
-[![Smoke](https://github.com/KyleJKistner/git-session-orchestrator-skill/actions/workflows/smoke.yml/badge.svg)](https://github.com/KyleJKistner/git-session-orchestrator-skill/actions/workflows/smoke.yml)
-
 `git-session-orchestrator` gives you live Codex session visibility (including subagents) plus git-safe coordination guidance from current repo state.
-
-![Terminal preview](assets/terminal-preview.svg)
 
 ## Value
 
@@ -110,3 +101,4 @@ chmod +x ./install.sh
 - Share kit: [`docs/share-kit.md`](docs/share-kit.md)
 - Skill entrypoint: [`git-session-orchestrator/SKILL.md`](git-session-orchestrator/SKILL.md)
 - Repo: `https://github.com/KyleJKistner/git-session-orchestrator-skill`
+- CI smoke workflow: `.github/workflows/smoke.yml`
