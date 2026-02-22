@@ -43,6 +43,26 @@ Run git coordination snapshot:
 python3 scripts/git_coordination.py
 ```
 
+Run continuous heartbeat monitor (session + git delta alerts):
+
+```bash
+python3 scripts/heartbeat_monitor.py \
+  --project-root "$PWD" \
+  --repo-root "$PWD" \
+  --active-minutes 30 \
+  --poll-interval 5 \
+  --heartbeat-interval 20
+```
+
+Run one cycle and exit:
+
+```bash
+python3 scripts/heartbeat_monitor.py \
+  --project-root "$PWD" \
+  --repo-root "$PWD" \
+  --once
+```
+
 Use explicit roots when not running from the target repository:
 
 ```bash
