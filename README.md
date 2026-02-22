@@ -5,10 +5,9 @@ Codex skill for monitoring Codex session logs (including subagent lineage/live a
 ## Install
 
 ```bash
-mkdir -p ~/.codex/skills
-git clone git@github.com:KyleJKistner/git-session-orchestrator-skill.git /tmp/git-session-orchestrator-skill
-rm -rf ~/.codex/skills/git-session-orchestrator
-cp -R /tmp/git-session-orchestrator-skill/git-session-orchestrator ~/.codex/skills/git-session-orchestrator
+git clone https://github.com/KyleJKistner/git-session-orchestrator-skill.git
+cd git-session-orchestrator-skill
+./install.sh
 ```
 
 ## Verify
@@ -18,6 +17,10 @@ ls ~/.codex/skills/git-session-orchestrator
 ```
 
 You should see `SKILL.md`, `scripts/`, `references/`, and `agents/`.
+
+## Share Link
+
+`https://github.com/KyleJKistner/git-session-orchestrator-skill`
 
 ## Skill quick commands
 
