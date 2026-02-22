@@ -1,0 +1,41 @@
+<svg width="1400" height="420" viewBox="0 0 1400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1320" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.5" stop-color="#0B3A63"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1400" height="420" rx="28" fill="url(#bg)"/>
+  <rect x="48" y="50" width="1304" height="320" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+
+  <rect x="92" y="103" width="16" height="16" rx="8" fill="#22C55E"/>
+  <rect x="117" y="103" width="16" height="16" rx="8" fill="#F59E0B"/>
+  <rect x="142" y="103" width="16" height="16" rx="8" fill="#EF4444"/>
+
+  <text x="92" y="176" fill="#E2E8F0" font-size="56" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">
+    git-session-orchestrator
+  </text>
+  <text x="92" y="220" fill="#93C5FD" font-size="24" font-family="'SF Mono','Menlo','Consolas',monospace">
+    Codex skill for session intelligence + git coordination
+  </text>
+
+  <g opacity="0.95">
+    <rect x="92" y="258" width="600" height="70" rx="12" fill="rgba(15,23,42,0.65)" stroke="rgba(56,189,248,0.45)"/>
+    <text x="114" y="302" fill="#CFFAFE" font-size="22" font-family="'SF Mono','Menlo','Consolas',monospace">
+      ./install.sh --force
+    </text>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M955 94C1034 94 1098 158 1098 237C1098 316 1034 380 955 380C876 380 812 316 812 237C812 158 876 94 955 94Z" fill="rgba(56,189,248,0.15)" stroke="rgba(125,211,252,0.5)"/>
+    <path d="M1117 127C1176 127 1224 175 1224 234C1224 293 1176 341 1117 341C1058 341 1010 293 1010 234C1010 175 1058 127 1117 127Z" fill="rgba(52,211,153,0.18)" stroke="rgba(134,239,172,0.5)"/>
+    <path d="M1008 144L1026 162L989 199L964 174L980 158L989 167L1008 144Z" fill="url(#accent)"/>
+    <text x="840" y="245" fill="#E0F2FE" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">session deltas</text>
+    <text x="1052" y="246" fill="#ECFDF5" font-size="18" font-family="'SF Mono','Menlo','Consolas',monospace">git topology</text>
+  </g>
+</svg>
